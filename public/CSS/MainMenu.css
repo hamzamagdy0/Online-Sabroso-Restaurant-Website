@@ -1,0 +1,106 @@
+body {
+    background-color: #292524; /* Dark background for a modern look */
+    color: #F2EECB; /* Light color for text */
+    font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+  
+  .menu-items {
+    display: flex;
+    justify-content: center; /* Center the menu items */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 20px; /* Add some space between items */
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .menu-item {
+    position: relative;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  .foodimages {
+    width: 200px; /* Fixed width for consistency */
+    height: auto;
+    border: 2px solid #F2EECB; /* Light border */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    display: block;
+    margin: 0 auto 10px; /* Center and add margin */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-item:hover .foodimages {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+  }
+  
+  h2 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+    color: #F2EECB; /* Light color for text */
+    background-color: rgba(152, 84, 84, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block;
+    width: 100%; /* Full width for better alignment */
+    box-sizing: border-box;
+  }
+  
+  .fooddescription {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(152, 84, 84, 0.7);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(100% - 20px); /* Adjust width */
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+  }
+  
+  .menu-item:hover .fooddescription {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  footer {
+    background-color: #1f1b1a;
+    color: #F2EECB;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .menu-items {
+      flex-direction: column; /* Stack items vertically */
+      gap: 10px; /* Reduce gap */
+    }
+  
+    .foodimages {
+      width: 80%; /* Adjust width for mobile */
+      margin: 0 auto 20px; /* Center and add bottom margin */
+    }
+  
+    h2 {
+      font-size: 1.2rem; /* Adjust font size for mobile */
+    }
+  }
+  

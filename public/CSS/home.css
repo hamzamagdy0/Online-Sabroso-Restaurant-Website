@@ -1,0 +1,418 @@
+/* Global Reset and Base Styles */
+* {
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #322C2B;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+  }
+  
+  .navigation a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 25px;
+    margin-right: 20px;
+    font-style: italic;
+  }
+  
+  .navigation a:hover {
+    color: white;
+  }
+  
+  /* Main Section Styles */
+  .main {
+    background-color: #E4C59E;
+    height: 90vh; /* Adjust height as needed */
+    bottom: 5%;
+  }
+  
+  section {
+    padding: 100px 50px; /* Adjust padding as needed */
+    height: 100%;
+  }
+  
+  .container2 {
+    position: absolute;
+    top: 120%;
+    left: 60%;
+    color: #000000;
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: absolute;
+    top: 170%; /* Adjust positioning if needed */
+    left: 7%; /* Adjust left positioning if needed */
+    transform: translateY(-50%);
+    width: 40%; /* Adjust width as needed */
+    color: #000000;
+  }
+  
+  .about.topic {
+    font-family: "Oswald", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 52.5px;
+  }
+  
+  .continue.topic {
+    color: #474545;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+  }
+  
+  .about-btn {
+    left: 30%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: #803D3B;
+    border-color: #322C2B;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.7s ease, transform 0.7s ease;
+    margin-bottom: 60px;
+    position: bottom;
+    flex-grow: 1;
+    order: 10;
+    display: inline-block;
+  }
+  
+  .about-btn:hover {
+    background-color: #803D3B;
+    transform: translate(-50%, -50%) scale(1.0);
+  }
+  
+  .container {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .container .content {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .topic {
+    font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+  }
+  
+  .t2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+  }
+  
+  .wallpaper {
+    height: 850px; /* Adjust height as needed */
+    width: 2000px; /* Adjust width as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #322C2B;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .footer-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Reservation Button Styles */
+  .reservation-btn {
+    left: 20%;
+    top: 60%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: transparent;
+    border-color: #322C2B;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.7s ease, transform 0.7s ease;
+    margin-bottom: 60px;
+    position: absolute;
+  }
+  
+  .reservation-btn:hover {
+    background-color: #803D3B;
+    transform: translate(-50%, -50%) scale(1.0);
+  }
+  
+  .logo {
+    width: 90%;
+  }
+  
+  /* Social Media Icons Styles */
+  .fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    right: 40%;
+  }
+  
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  /* Login and Signup Form Styles */
+  #login-form, #signup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 400px;
+    width: 80%;
+  }
+  
+  #login-form h2, #signup-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #login-form input[type="text"],
+  #login-form input[type="password"],
+  #signup-form input[type="text"],
+  #signup-form input[type="email"],
+  #signup-form input[type="password"],
+  #signup-form input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  #login-form input[type="submit"],
+  #signup-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #322C2B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+  }
+  
+  #login-form input[type="submit"]:hover,
+  #signup-form input[type="submit"]:hover {
+    background-color: #524745;
+  }
+  
+  #login-form .signup-link,
+  #signup-form .signup-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  #login-form .signup-link span,
+  #signup-form .signup-link span {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  #login-form .signup-link a,
+  #signup-form .signup-link a {
+    color: #322C2B;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  #login-form .signup-link a:hover,
+  #signup-form .signup-link a:hover {
+    color: #524745;
+  }
+  
+  #login-form .social-icons,
+  #signup-form .social-icons {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #login-form .social-icons a,
+  #signup-form .social-icons a {
+    color: #666;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  #login-form .social-icons a:hover,
+  #signup-form .social-icons a:hover {
+    color: #322C2B;
+  }
+  
+  /* Dropdown menu styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #322C2B;
+    color: white;
+    padding: 12px 16px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #322C2B;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: "Poppins", sans-serif;
+
+  }
+  
+  .dropdown-content a {
+    color: #F2EECB;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+  }
+  
+  .dropdown-content a:hover {background-color: #3e8e41;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .navigation a {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+  
+    .main {
+      height: auto;
+      padding: 20px;
+    }
+  
+    .container2, .text {
+      position: static;
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .about-btn, .reservation-btn {
+      position: static;
+      transform: none;
+      margin: 20px auto;
+      display: block;
+    }
+  
+    .wallpaper {
+      height: 500px;
+      width: 100%;
+    }
+  
+    .footer {
+      padding: 20px 10px;
+    }
+  
+    .dropbtn, .dropdown-content a {
+      font-size: 16px;
+    }
+  
+    #login-form, #signup-form {
+      width: 90%;
+    }
+  
+    #login-form input[type="text"], #login-form input[type="password"],
+    #signup-form input[type="text"], #signup-form input[type="email"],
+    #signup-form input[type="password"], #signup-form input[type="tel"] {
+      font-size: 14px;
+    }
+  
+    #login-form input[type="submit"], #signup-form input[type="submit"] {
+      font-size: 14px;
+    }
+  }
+  

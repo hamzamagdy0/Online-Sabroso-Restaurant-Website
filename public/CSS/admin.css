@@ -1,0 +1,142 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  background-color: #1e1e2f;
+  color: #fff;
+  position: fixed;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.sidebar a:hover {
+  background-color: #4CAF50;
+  color: #fff;
+  transform: translateX(10px);
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .content {
+    margin-left: 0;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.product:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.product p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.product .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product .actions button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.product .actions button:hover {
+  background-color: #45a049;
+}
+
+/* Notification Badge */
+.notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .product {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,198 @@
+/* Reset and basic styles */
+body {
+    background-color: rgb(41, 37, 36);
+    background-image: url(Images/mexicanhat.png);
+    background-repeat: repeat-x;
+    background-size: 10%;
+    color: rgb(242, 238, 203); /* Default text color */
+    font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
+/* Appetizers section styles */
+.appetitle {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3rem; /* Adjust as needed */
+    color: rgb(242, 238, 203);
+    font-weight: normal;
+    text-align: center;
+    padding-top: 20px; /* Adjust spacing */
+}
+
+.appetizer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with a minimum of 300px width */
+    gap: 20px; /* Adjust the space between items */
+    padding: 20px; /* Padding around the container */
+}
+
+/* Ensure two items per column on larger screens */
+@media (min-width: 768px) {
+    .appetizer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.appetizer-item {
+    background-color: rgb(43, 38, 38);
+    border: 0.5vw solid rgb(242, 238, 203);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Add position relative for absolute positioning of description */
+}
+
+.appetizer-item:hover .appedescription {
+    display: block; /* Show description on hover */
+}
+
+.appename {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(242, 238, 203);
+    font-weight: normal;
+    font-size: 2rem; /* Adjust as needed */
+    margin-top: 10px;
+}
+
+.appeimages {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Adjust space between image and content */
+}
+
+.appeprices {
+    font-size: 2rem; /* Adjust as needed */
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(242, 238, 203);
+    margin-top: 10px;
+}
+
+.appedescription {
+    display: none; /* Hide description by default */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    color: rgb(242, 238, 203);
+    position: absolute;
+    top: 50%; /* Position in the middle vertically */
+    left: 50%; /* Position in the middle horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%; /* Adjust width as needed */
+    z-index: 1; /* Ensure description appears above other content */
+}
+
+.spicy {
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 20px; /* Adjust spacing */
+}
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #1f1b1a;
+    color: #F2EECB;
+    padding: 12px 16px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1f1b1a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #F2EECB;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.dropdown-content a:hover {background-color: #3e8e41;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    .navigation a {
+        font-size: 1rem;
+    }
+
+    .appetizer-container {
+        padding-top: 80px;
+    }
+
+    .appetizer-item {
+        padding: 15px;
+    }
+
+    .appename {
+        font-size: 4vw;
+    }
+
+    .appeprices {
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 80px;
+    }
+
+    .navigation a {
+        font-size: 0.8rem;
+        margin: 0 5px;
+    }
+
+    .appetizer-container {
+        padding-top: 60px;
+    }
+
+    .appename {
+        font-size: 5vw;
+    }
+
+    .appeprices {
+        font-size: 4vw;
+    }
+
+    .appedescription {
+        font-size: 0.8rem;
+    }
+}

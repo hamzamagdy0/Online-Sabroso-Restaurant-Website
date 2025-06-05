@@ -1,0 +1,139 @@
+/* Base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    color: #555;
+    min-height: 100vh; /* Ensure body covers the full height of the viewport */
+}
+
+header {
+    background-color: #1b4f1d;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    max-width: 800px; /* Example of maximum width for content */
+    margin: 0 auto; /* Center-align content */
+}
+
+.about {
+    max-width: 100%;
+    height: auto; /* Adjusted to auto to fit content */
+    margin-bottom: 40px; /* Adjusted to create space above the footer */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    margin: 30px 0; /* Adjusted margin */
+    color: #686868;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+p {
+    font-weight: bold;
+    margin-bottom: 20px; /* Reduced bottom margin for paragraph */
+    margin-top: 10px;
+    color: #686868;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255); /* Transparent background color */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0; /* Adjusted padding */
+    height: 50px; /* Adjusted height */
+    transition: all 0.3s ease; /* Smooth transition */
+    z-index: 999; /* Ensure footer is above other content */
+
+}
+
+
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 40px; /* Adjusted font size for smaller screens */
+        margin: 20px 0; /* Adjusted margin */
+    }
+
+    p {
+        font-size: 16px; /* Adjusted font size for smaller screens */
+        line-height: 1.4;
+    }
+
+    .about {
+        margin-top: 50px;
+        margin-bottom: 80px; /* Adjusted margin for smaller screens */
+    }
+
+    footer {
+        position: static; /* Override fixed position for smaller screens */
+        margin-top: 20px; /* Example: Add space above the footer */
+        background-color: rgba(47, 47, 47, 0.5); /* Transparent background color */
+        height: 20px; /* Adjusted height for smaller screens */
+    }
+
+    /* No hover effect on smaller screens */
+    footer:hover {
+        transform: none; /* Remove transform on hover */
+        background-color: rgb(255, 255, 255); /* Reset background color */
+        box-shadow: none; /* Remove box shadow */
+    }
+}
+
+.map-container {
+    width: 80%;
+    margin-right: 50%;
+    float: left; /* Float the map container to the right */
+    clear: both; /* Clear floats to prevent footer overlap */
+    margin-bottom: 20px; /* Add margin below the map container */
+
+}
+
+iframe {
+    border: 1px solid #ccc; /* Add a border to the map iframe */
+    border-radius: 5px; /* Rounded corners for iframe */
+    margin-top: 5px; /* Add space above the map */
+    width: 100%; /* Adjusted width for better visibility */
+    height: 500px; /* Adjusted height for better visibility */
+    float: left; /* Float the map to the left */
+}
+
+.visit-us {
+    float: right;
+    text-align: left; /* Align text to the left within its container */
+    width: 100%; /* Adjusted width for better alignment */
+    padding: 20px;
+}
+
+.visit-us h2 {
+    font-size: 35px; /* Adjusted font size for better readability */
+    margin-top: 0px; /* Reduced margin for better spacing */
+    margin-right: 0; /* Removed margin on the right */
+    color: #333;
+    font-family: "Poppins", sans-serif;
+}
+.map-and-text{
+    margin-top: 5px;
+}
+

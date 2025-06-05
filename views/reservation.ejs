@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="CSS/Reservation.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <script src="../public/JS/script.js" defer></script>
+
+    <title>Book A Table</title>
+</head>
+<body>
+    <header>
+        <a href="home">
+            <img src="Images/logof.png" alt="Logo" class="logo">
+        </a>
+        <nav class="navigation">
+            <a href="/home">Home</a>
+            <div class="dropdown">
+                <a href="/MainMenu" class="menu-link">Menu</a>
+                <div class="dropdown-content">
+                    <a href="/appetizers">Appetizers</a>
+                    <a href="/mainDishes">Main Course</a>
+                    <a href="/desserts">Desserts</a>
+                    <a href="/drinks">Beverages</a>
+                </div>
+            </div>
+            <a href="/about">About</a>
+            <a href="/reservation">Reservation</a>
+            <a href="/myProfile">My Profile</a>
+        </nav>
+    </header>
+    <section class="page restaurant">
+        <div class="page-image">
+            <img src="https://www.franciscosegarra.com/wp-content/uploads/2020/07/mobilier-pour-restaurants-chics-1-1024x768.jpg" alt="img" />
+        </div>
+
+        <div class="page-content">
+            <section>
+                <h2>Reservation</h2>
+                <form id="reservationForm" onsubmit="return validateForm()">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required />
+                    </div>
+                    <div class="input-row flex">
+                        <div class="input-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" required />
+                            <div id="date-error" class="error-message"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="time">Time</label>
+                            <input type="time" id="time" required />
+                            <div id="time-error" class="error-message"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="person">Number of Person</label>
+                            <input type="number" id="person" required />
+                        </div>
+                    </div>
+                    <button id="bookTableButton" class="form-btn" type="submit">BOOK A TABLE</button>
+                </form>
+            </section>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reservationForm = document.getElementById('reservationForm');
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+            const dateError = document.getElementById('date-error');
+            const timeError = document.getElementById('time-error');
+
+            function validateDateAndTime() {
+                const now = new Date();
+                const selectedDate = new Date(dateInput.value);
+                const selectedTime = timeInput.value.split(':');
+                selectedDate.setHours(selectedTime[0], selectedTime[1]);
+
+                if (selectedDate < now) {
+                    dateError.textContent = "The selected date must be in the future.";
+                    timeError.textContent = "The selected time must be in the future.";
+                    return false;
+                }
+                 else {
+                    dateError.textContent = "";
+                    timeError.textContent = "";
+                    return true;
+                }
+            }
+
+            reservationForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                if (!validateDateAndTime()) {
+                    return;
+                }
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const date = dateInput.value;
+                const time = timeInput.value;
+                const person = document.getElementById('person').value;
+
+                const data = { 
+                    Email: email,
+                    ReservationDate: date,
+                    ReservationTime: time,
+                    NumberOfGuests: person
+                };
+
+                try {
+                    const response = await fetch('/reservations', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        console.log('Reservation successful:', result);
+                        alert('Reservation Successful :)');
+                        document.getElementById("name").value = "";
+                        document.getElementById("email").value = "";
+                        document.getElementById("date").value = "";
+                        document.getElementById("time").value = "";
+                        document.getElementById("person").value = "";
+                    } else {
+                        console.log('Error:', result.message);
+                    }
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products</title>
+<link rel="stylesheet" href="CSS/admin.css">
+<link rel="stylesheet" href="CSS/products.css">
+</head>
+<body>
+<div class="sidebar">
+  <h2>View Products</h2>
+  <ul>
+    <li><a href="admin">Back</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <h1>All Products</h1>
+  <div id="productsContainer">
+    <!-- Products will be dynamically added here -->
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('/menu'); 
+            const data = await response.json();
+            
+            if (response.ok) {
+                const productsContainer = document.getElementById('productsContainer');
+                productsContainer.innerHTML = '';
+
+                data.forEach((product) => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <h2>${product.ItemName}</h2>
+                        <p>Price: $${product.ItemPrice}</p>
+                        <p>Category: ${product.Category}</p>
+                        <div class="actions">
+                            <button style="background-color: blue;" onclick="editProduct('${product._id}')">Edit</button>
+                            <button style="background-color: red;" onclick="deleteProduct('${product._id}')">Delete</button>
+                        </div>
+                    `;
+                    productsContainer.appendChild(productDiv);
+                });
+            } else {
+                console.error('Failed to fetch products:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    async function editProduct(id) {
+        console.log(`Edit product with id: ${id}`);
+    }
+
+    async function deleteProduct(id) {
+        try {
+            const response = await fetch(`/menu/${id}`, { method: 'DELETE' });
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('Product deleted successfully:', result);
+                window.location.reload();
+            } else {
+                console.error('Failed to delete product:', result.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function addProduct(id) {
+        console.log(`Add product with id: ${id}`);
+    }
+</script>
+</body>
+</html>

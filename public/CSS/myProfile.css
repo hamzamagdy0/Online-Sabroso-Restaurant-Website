@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #322C2B;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.navigation a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 25px;
+    margin-right: 20px;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navigation a:hover {
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #322C2B;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navigation a:hover {
+    color: #E4C59E;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile h1 {
+    font-size: 24px; /* Reduced font size */
+    margin-bottom: 10px; /* Adjusted margin */
+}
+
+.profile-info {
+    background-color: #322C2B; /* Lighter background color */
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    padding: 15px; /* Increased padding for better spacing */
+    max-width: 600px;
+    margin: 0 auto 20px; /* Centered with adjusted margin */
+    font-size: 16px; /* Slightly increased font size */
+    text-align: center; /* Centered text */
+}
+
+.profile-info p {
+    margin-bottom: 10px; /* Increased margin bottom for better spacing */
+}
+
+.profile-info strong {
+    margin-right: 8px; /* Adjusted margin */
+    font-weight: bold; /* Bold text */
+    color: #322C2B; /* Darker text color */
+}
+
+.reservation-details {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.reservation-details h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.reservation-details p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer {
+    background-color: #322C2B;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.cancel-btn {
+    background-color: #E4C59E;
+    color: #322C2B;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #C3A480;
+}
+
+/* Adjustments for the reservation table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #E4C59E;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #E4C59E;
+}
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation a {
+        font-size: 20px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .profile-info,
+    .reservation-details {
+        max-width: 100%;
+        margin: 0 10px 20px;
+        padding: 10px;
+    }
+
+    .profile-info p,
+    .reservation-details p {
+        font-size: 14px;
+    }
+
+    .reservation-details h2 {
+        font-size: 20px;
+    }
+
+    .cancel-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    table {
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/home.css">
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="JS/script.js"></script>
+    <title>Sabroso</title>
+</head>
+<body>
+    <header>
+        <a href="home">
+            <img src="Images/logof.png" alt="Logo" class="logo">
+        </a>
+        <nav class="navigation">
+            <a href="/home">Home</a>
+            <div class="dropdown">
+                <a href="/MainMenu" class="menu-link">Menu</a>
+                <div class="dropdown-content">
+                    <a href="/appetizers">Appetizers</a>
+                    <a href="/mainDishes">Main Course</a>
+                    <a href="/desserts">Desserts</a>
+                    <a href="/drinks">Beverages</a>
+                </div>
+            </div>
+            <a href="/about">About</a>
+            <a href="/reservation">Reservation</a>
+            <a href="/myProfile">My Profile</a>
+        </nav>
+    </header>
+    <div class="container">
+        <img class="wallpaper" src="Images/wallpaper2.jpg" alt="wallpaper" style="width:100%;">
+        <div class="content">
+            <h4 class="topic">GET SPICY SHRIMP TACOS WITH HOT MANGO GRAVY!</h4>
+            <br>
+            <h1 class="t2">PUNGENT MEXICAN TACOS...</h1>
+        </div>
+        <a href="reservation" class="reservation-btn">BOOK NOW!</a>
+    </div>
+
+    <section class="main">
+        <div class="container2">
+            <img class="nacho" src="Images/nacho b.png" alt="nacho" style="width:100%;">
+        </div>
+        <div class="text">
+            <h1 class="about topic">The celebration of Mexico’s vibrant history and culture.</h1>
+            <br><br>
+            <h4 class="continue topic">
+                Centuries of conquest, independence and revolution have left us with a diverse culinary <br> heritage and a generous appetite for festivity.
+                At Hidalgo, you will find authentic, homemade, <br>Central Mexican cuisine in the warm, gracious atmosphere of a Mexican country estate. <br> Our bar features a wide selection of tequilas and margaritas, as well as a unique Menu.
+            </h4>
+            <a href="/about" class="about-btn">Read More</a>
+        </div>
+    </section>
+    
+
+    <!-- Login form container -->
+    <div id="login-form" style="display: block;">
+        <!-- Your login form HTML here -->
+        <h2>Sign in</h2>
+        <form onsubmit="return loginUser()">
+            <input type="text" id="Email" name="Email" placeholder="Email">
+            <div class="error" id="username-error"></div>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <div class="error" id="password-error"></div>
+            <input type="submit" value="Login">
+            <div class="signup-link">
+                <span>Don't have an account? <a href="SignUp" id="signup-link">Sign up</a></span>
+            </div>
+        </form>
+        <!-- Social media icons -->
+        <div class="social-icons">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+
+    <!-- Signup form container -->
+    <div id="signup-form" style="display: none;">
+        <h2>Sign up</h2>
+        <form onsubmit="return validateSignupForm()">
+            <input type="text" name="username" placeholder="Username">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" id="signup-password" placeholder="Password">
+            <span class="error-message" id="password-error"></span>
+            <input type="tel" name="phone" placeholder="Phone Number" oninput="validatePhoneNumber(this)">
+            <span class="error-message" id="phone-error"></span>
+            <input type="submit" value="Sign Up">
+            <div class="signup-link">
+                <span>Already have an account? <a href="#" id="login-link">Login</a></span>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><i class="fa fa-map-marker"></i> 123 Main Street, Cairo, Egypt</li>
+                    <li><i class="fa fa-phone"></i> Phone: +20 106 975 3576</li>
+                    <li><i class="fa fa-envelope"></i> Email: info@mexicanrestaurant.com</li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

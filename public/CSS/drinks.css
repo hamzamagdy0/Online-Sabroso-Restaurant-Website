@@ -1,0 +1,201 @@
+/* Reset and basic styles */
+body {
+    background-color: rgb(41, 37, 36);
+    background-image: url(Images/mexicanhat.png);
+    background-repeat: repeat-x;
+    background-size: 10%;
+    margin: 0;
+    padding: 0;
+    color: rgb(242, 238, 203); /* Default text color */
+    font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+}
+
+/* Drinks menu section styles */
+.drinksmenu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with a minimum of 300px width */
+    gap: 20px; /* Adjust the space between items */
+    background-color: rgb(43, 38, 38);
+    color: rgb(242, 238, 203);
+    padding-top: 120px; /* Adjust based on header height */
+    min-height: 100vh; /* Ensure full height content */
+    padding: 20px; /* Padding around the container */
+}
+
+.drink {
+    background-color: rgb(43, 38, 38);
+    border: 0.5vw solid rgb(242, 238, 203);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Ensure description is hidden until hovered */
+    transition: transform 0.3s ease-out; /* Smooth transition for hover effect */
+}
+
+.drink:hover {
+    transform: scale(1.05); /* Scale up the drink container on hover */
+}
+
+.drink:hover .drinkdescription {
+    display: block; /* Show description on hover */
+}
+
+.drinksimages {
+    width: 100%; /* Ensure the image stretches within its container */
+    max-width: 100%; /* Prevent image overflow */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Adjust space between image and content */
+}
+
+.drinksname {
+    font-weight: normal;
+    font-size: 2.5vw; /* Changed to viewport width for responsiveness */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 5px; /* Adjust space between title and description */
+}
+
+.drinkdescription {
+    display: none; /* Hide description by default */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px; /* Adjusted for better readability */
+    border-radius: 5px;
+    bottom: -100%; /* Initially position off-screen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure description appears above other content */
+    width: 80%; /* Adjusted for better width */
+    transition: bottom 0.3s ease-out; /* Smooth transition for appearing/disappearing */
+}
+
+.drink:hover .drinkdescription {
+    bottom: 0; /* Slide description in on hover */
+}
+
+.prices {
+    text-align: center;
+    font-size: 2vw; /* Changed to viewport width for responsiveness */
+    font-weight: bold;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #F2EECB;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #1f1b1a;
+    color: #F2EECB;
+    padding: 12px 16px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1f1b1a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #F2EECB;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.dropdown-content a:hover {background-color: #3e8e41;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    .navigation a {
+        font-size: 1rem;
+    }
+
+    .drinksmenu {
+        padding-top: 100px;
+    }
+
+    .drink {
+        padding: 15px;
+    }
+
+    .drinksname {
+        font-size: 4vw;
+    }
+
+    .prices {
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 80px;
+    }
+
+    .navigation a {
+        font-size: 0.8rem;
+        margin: 0 5px;
+    }
+
+    .drinksmenu {
+        padding-top: 80px;
+    }
+
+    .drinksname {
+        font-size: 5vw;
+    }
+
+    .prices {
+        font-size: 4vw;
+    }
+
+    .drinkdescription {
+        font-size: 0.8rem;
+    }
+}

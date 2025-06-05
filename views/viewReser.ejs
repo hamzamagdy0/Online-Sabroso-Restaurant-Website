@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products</title>
+<link rel="stylesheet" href="CSS/admin.css">
+<link rel="stylesheet" href="CSS/viewReser.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="admin">Back</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>View Reservations</h1>
+        <div id="reservations-container">
+            <!-- Reservations will be dynamically added here -->
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    async function fetchReservations() {
+        try {
+            const response = await fetch('/reservations', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const reservations = await response.json();
+                console.log(reservations)
+                displayReservations(reservations.data);
+            } else {
+                console.error('Failed to fetch reservations');
+            }
+        } catch (error) {
+            console.error('Error fetching reservations:', error);
+        }
+    }
+
+    function displayReservations(reservations) {
+        const reservationsContainer = document.getElementById('reservations-container');
+        reservationsContainer.innerHTML = '';
+
+        reservations.forEach(reservation => {
+            const reservationDiv = document.createElement('div');
+            reservationDiv.classList.add('reservation');
+
+            reservationDiv.innerHTML = `
+                <label>Reservation number:</label> <label>${reservation._id}</label>
+                <p>Reservation Date: ${reservation.ReservationDate}</p>
+                <p>Reservation Time: ${reservation.ReservationTime}</p>
+                <p>Number of Guests: ${reservation.NumberOfGuests}</p>
+                <p>Name: ${reservation.User.UserName}</p>
+                <p>Email: ${reservation.User.Email}</p>
+                <div class="buttons">
+                    <button onclick="editReservation('${reservation._id}', '${reservation.User.UserName}', '${reservation.User.Email}', '${reservation.ReservationDate}', '${reservation.ReservationTime}', ${reservation.NumberOfGuests})">Edit Reservation Details</button>
+                    <button style="background-color: red;" onclick="deleteReservation('${reservation._id}')">Delete Reservation</button>
+                </div>
+            `;
+
+            reservationsContainer.appendChild(reservationDiv);
+        });
+    }
+
+    async function editReservation(reservationId, name, email, date, time, guests) {
+        const localDate = new Date(date).toISOString().split('T')[0];
+        const { value: formValues } = await Swal.fire({
+            title: 'Edit Reservation',
+            html:
+                `<input id="editName_${reservationId}" class="swal2-input" placeholder="Name" value="${name}" required>` +
+                `<input id="editEmail_${reservationId}" class="swal2-input" placeholder="Email" value="${email}" required>` +
+                `<input id="editDate_${reservationId}" type="date" class="swal2-input" value="${localDate}" required>` +
+                `<input id="editTime_${reservationId}" type="time" class="swal2-input" value="${time}" required>` +
+                `<input id="editGuests_${reservationId}" type="number" class="swal2-input" placeholder="Number of Guests" value="${guests}" required>`,
+            focusConfirm: false,
+            preConfirm: () => {
+                return {
+                    name: document.getElementById(`editName_${reservationId}`).value,
+                    email: document.getElementById(`editEmail_${reservationId}`).value,
+                    date: document.getElementById(`editDate_${reservationId}`).value,
+                    time: document.getElementById(`editTime_${reservationId}`).value,
+                    guests: document.getElementById(`editGuests_${reservationId}`).value
+                };
+            }
+        });
+
+        if (formValues) {
+            const { name, email, date, time, guests } = formValues;
+            const payload = {
+                Email: email,
+                ReservationDate: date,
+                ReservationTime: time,
+                NumberOfGuests: guests
+            };
+
+            try {
+                const response = await fetch(`/reservations/${reservationId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    Swal.fire('Updated!', 'Reservation details updated successfully.', 'success');
+                    fetchReservations(); // Reload the reservations
+                } else {
+                    const errorMessage = await response.json();
+                    Swal.fire('Error!', errorMessage.message || 'Failed to update reservation.', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating reservation:', error);
+                Swal.fire('Error!', 'Internal Server Error. Please try again later.', 'error');
+            }
+        }
+    }
+
+    async function deleteReservation(reservationId) {
+        try {
+            const response = await fetch(`/reservations/${reservationId}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                Swal.fire('Deleted!', 'Reservation has been deleted.', 'success');
+                fetchReservations(); // Reload the reservations
+            } else {
+                const errorMessage = await response.json();
+                Swal.fire('Error!', errorMessage.message || 'Failed to delete reservation.', 'error');
+            }
+        } catch (error) {
+            console.error('Error deleting reservation:', error);
+            Swal.fire('Error!', 'Internal Server Error. Please try again later.', 'error');
+        }
+    }
+
+    // Fetch reservations when the page loads
+    document.addEventListener('DOMContentLoaded', fetchReservations);
+</script>
+</html>

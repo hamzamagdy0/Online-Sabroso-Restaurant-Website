@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="/CSS/about.css">
+    <link rel="stylesheet" href="/CSS/home.css">
+</head>
+<body> 
+    <header>
+        <a href="/home">
+            <img src="/Images/logof.png" alt="Logo" class="logo">
+        </a>
+        <nav class="navigation">
+            <a href="/home">Home</a>
+            <div class="dropdown">
+                <a href="/MainMenu" class="menu-link">Menu</a>
+                <div class="dropdown-content">
+                    <a href="/appetizers">Appetizers</a>
+                    <a href="/mainDishes">Main Course</a>
+                    <a href="/desserts">Desserts</a>
+                    <a href="/drinks">Beverages</a>
+                </div>
+            </div>
+            <a href="/about">About</a>
+            <a href="/reservation">Reservation</a>
+            <a href="/myProfile">My Profile</a>
+        </nav>
+    </header>
+
+    <section class="content">
+        <img class="about" src="/Images/about.jpg" alt="about image">
+        <h1>Welcome to Our Mexican Restaurant!</h1>
+        <p><%= aboutText %></p>
+        
+        <section class="map-and-text">
+            <div class="visit-us">
+                <h2>You can come visit us at:</h2>
+            </div>
+            <div class="map-container">
+                <!-- Embed Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221202.4537483253!2d31.01397029453125!3d29.971142399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145839d3faea4e2d%3A0xe0135862169ae455!2sSABROSO!5e0!3m2!1sen!2seg!4v1719218456888!5m2!1sen!2seg" width="1200" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </section>
+        <br>
+    </section>
+    <footer>
+        <p>&copy; 2024 Mexican Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

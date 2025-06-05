@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products</title>
+<link rel="stylesheet" href="CSS/admin.css">
+<link rel="stylesheet" href="CSS/addProduct.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Add Products</h2>
+  <ul>
+    <li><a href="admin">Back</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <h2>Add New Product</h2>
+  <form action="your_server_endpoint" method="POST" enctype="multipart/form-data" class="product-form">
+    <div class="form-group">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="productprice">Product price:</label>
+      <input type="text" id="productprice" name="productprice" required>
+    </div>
+
+    <div class="form-group">
+      <label for="productDescription">Product Description:</label>
+      <input type="text" id="productDescription" name="productDescription" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="productPhoto">Product Photo:</label>
+      <input type="file" id="productPhoto" name="productPhoto" accept="image/*" required>
+    </div>
+    
+    <button type="submit" class="submit-button">Add Product</button>
+  </form>
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('/menu'); 
+            const menuItems = await response.json();
+
+            if (response.ok) {
+                const productGrid = document.getElementById('productGrid');
+                productGrid.innerHTML = '';
+
+                menuItems.forEach(item => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <img src="${item.ImageUrl}" alt="${item.ItemName} Image">
+                        <h2>${item.ItemName}</h2>
+                        <div class="actions">
+                            <button onclick="editProduct('${item._id}')">Edit</button>
+                            <button onclick="deleteProduct('${item._id}')">Delete</button>
+                        </div>
+                    `;
+                    productGrid.appendChild(productDiv);
+                });
+            } else {
+                console.error('Failed to fetch menu items:', menuItems.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    async function editProduct(id) {
+        console.log('Edit product with ID:', id);
+    }
+
+    async function deleteProduct(id) {
+        try {
+            const response = await fetch(`/menu/${id}`, { method: 'DELETE' });
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('Product deleted successfully:', result.message);
+                window.location.reload();
+            } else {
+                console.error('Failed to delete product:', result.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
+</html>
